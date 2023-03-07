@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap');
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    margin: 0;
+}
+
+.navbar {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar ul {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    justify-content: space-between;
+    padding: 0 16px;
+    list-style: none;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.navbar ul li:nth-child(1) {
+    font-size: xx-large;
+}
