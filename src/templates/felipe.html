@@ -1,0 +1,9 @@
+{% extends './layout.html' %}
+
+{% block titulo %}
+  {{data.nombre}}
+{% endblock %}
+{% block body %}
+<img src="{{ url_for('static', filename=data.foto_url) }}" alt="My Image">
+{{data.biografia}}
+{% endblock %}
