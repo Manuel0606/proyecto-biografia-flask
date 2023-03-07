@@ -13,18 +13,21 @@ body {
 
 .navbar ul {
     display: grid;
-    grid-template-rows: 1fr auto;
-    justify-content: space-between;
+    grid-template-columns: 1fr auto auto auto auto auto 1fr;
+    justify-content: center;
+    align-items: center;
     padding: 0 16px;
     list-style: none;
+    gap: 16px;
 }
 
 .navbar ul li a {
     text-decoration: none;
     color: black;
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 
 .navbar ul li:nth-child(1) {
     font-size: xx-large;
+    font-weight: bold;
 }
