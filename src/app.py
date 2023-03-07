@@ -5,16 +5,16 @@ from registro import Registro
 db_conection = Conexion()
 app = Flask(__name__)
 
-@app.route('/guardar_persona', methods=['POST'])
-def agregarPersona():
-    personas = db_conection['Personas']
+@app.route('/registro', methods=['POST'])
+def registro():
+    registros = db_conection['Registro']
     nombre = request.form['nombre']
     correo = request.form['correo']
     mensaje = request.form['mensaje']
 
     if nombre and correo and mensaje:
-        persona = Registro(nombre, correo, mensaje)
-        personas.insert_one(persona.formato_doc())
+        registro = Registro(nombre, correo, mensaje)
+        registros.insert_one(registro.formato_doc())
         return redirect(url_for('index'))
     else:
         return 'Error'
