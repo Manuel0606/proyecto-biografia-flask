@@ -1,0 +1,24 @@
+{% extends './layout.html' %}
+
+{% block titulo %}
+  Página principal
+{% endblock %}
+{% block body %}
+<div>
+  <h1>Formulario</h1>
+  <form action="/save_persons" method="post">
+    <div class="mb-3">
+      <label for="name" class="form-label">Nombre</label>
+      <input type="text" class="form-control" id="name" name="name">
+    </div>
+    <div class="mb-3">
+      <label for="surname" class="form-label">Apellido</label>
+      <input type="text" class="form-control" id="surname" name="surname">
+    </div>
+    <div class="mb-3">
+      <label for="phone" class="form-label">Teléfono</label>
+      <input type="text" class="form-control" id="phone" name="phone">
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+</div>
+{% endblock %}
