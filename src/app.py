@@ -1,6 +1,23 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
+from config import *
+from registro import Registro
 
+db_conection = Conexion()
 app = Flask(__name__)
+
+@app.route('/guardar_persona', methods=['POST'])
+def agregarPersona():
+    personas = db_conection['Personas']
+    nombre = request.form['nombre']
+    correo = request.form['correo']
+    mensaje = request.form['mensaje']
+
+    if nombre and correo and mensaje:
+        persona = Registro(nombre, correo, mensaje)
+        personas.insert_one(persona.formato_doc())
+        return redirect(url_for('index'))
+    else:
+        return 'Error'
 
 @app.route('/')
 def index():
@@ -9,7 +26,7 @@ def index():
 @app.route('/felipe')
 def felipe():
     biografia = """
-    Nací el 28 de Octubre del 2001, pasé mi niñez y parte de mi adolescencia en Bogotá, luego vine a vivir a Chiquinquirá a terminar mis estudios de la secundaria, allí fue donde aprendí a jugar basketball.
+    Nací el 28 de Octubre de 2001, pasé mi niñez y parte de mi adolescencia en Bogotá, luego vine a vivir a Chiquinquirá a terminar mis estudios de la secundaria, allí fue donde aprendí a jugar basketball.
     Mis pasatiempos son el basketball, la computación, la música y el emprendimiento.
     En mis metas se encuentra el lograr aportar mis conocimientos y habilidades en beneficio de la sociedad.
     """
@@ -24,8 +41,11 @@ def felipe():
 @app.route('/manuel')
 def manuel():
     biografia = """
+    Nací el 06 de Abril de 2002, pasé mi niñez y parte de mi adolescencia en Pamplona, Cúcuta, Bucaramanga, San Alberto y Guateque, luego vine a vivir a Ubaté a iniciar mis estudios universitarios.
+    Algunos de mis pasatiempos son el basketball, los videojuegos, la computación y la música.
+    Mis metas son alcanzar el nivel senior en desarrollo web.
     """
-    foto_url="images/foto_manuel.jpg"
+    foto_url="images/foto_manuel.jpeg"
     data = {
         'nombre':'Manuel Alejandro Comezaña Quintero',
         'biografia':biografia,
