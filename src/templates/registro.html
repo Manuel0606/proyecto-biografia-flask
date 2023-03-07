@@ -1,22 +1,25 @@
 {% extends './layout.html' %}
 
 {% block titulo %}
-  {{data.nombre}}
+  Registro
 {% endblock %}
 {% block body %}
 <div class="form-container">
 
-    <h1 class="title">Create a new password</h1>
-    <p class="subtitle">Enter a new password for your account</p>
+    <h1 class="title">Crear registro</h1>
+    <p class="subtitle">Danos tu opinión</p>
 
     <form action="/" class="form">
-        <label for="password" class="label">Password</label>
-        <input type="password" id="password" placeholder="*********" class="input input-password">
+        <label for="nombre" class="label">Nombre</label>
+        <input type="nombre" id="nombre" placeholder="nombre" class="input input-nombre">
 
-        <label for="new-password" class="label">Re-enter password</label>
-        <input type="password" id="new-password" placeholder="*********" class="input input-password">
+        <label for="correo" class="label">Correo</label>
+        <input type="correo" id="correo" placeholder="correo@ejemplo" class="input input-correo">
+        
+        <label for="mensaje" class="label">Mensaje</label>
+        <input type="mensaje" id="mensaje" placeholder="Mensaje...." class="input input-mensaje">
 
-        <input type="submit" value="Confirm" class="primary-button login-button">
+        <input type="submit" value="Enviar" class="primary-button login-button">
     </form>
 
 </div>
